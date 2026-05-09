@@ -1,0 +1,39 @@
+[workspace]
+name = "m1_stat final_phonetics_project"
+version = "0.1.0"
+description = "Acoustic and Neural Representations in a Phonetically Aligned Speech Corpus"
+channels = ["conda-forge", "pytorch"]
+platforms = ["win-64"]
+
+[dependencies]
+python = ">=3.10"
+pandas = "*"
+numpy = "*"
+
+# phonetical analysis
+librosa = "*"
+
+# statistical analysis and machine learning
+pytorch = "*"
+transformers = "*"
+scikit-learn = "*"
+statsmodels = "*"
+scipy = "*"
+
+# visualization
+matplotlib = "*"
+seaborn = "*"
+
+dvc = "*"
+
+[pypi-dependencies]
+praat-parselmouth = "*"
+
+[tasks]
+parse = "python scripts/parse_corpus.py"
+extract_acoustics = "python scripts/extract_acoustics.py"
+extract_whisper = "python scripts/extract_neural.py --model whisper"
+extract_xlsr = "python scripts/extract_neural.py --model xlsr"
+analyze = "python scripts/analyze.py"
+
+pipeline = "dvc repro"
