@@ -5,3 +5,17 @@ stages:
       - scripts/01_parse_corpus.py
     outs:
       - features/manifest.csv
+  
+  extract_acoustics:
+    cmd: python scripts/02_extract_acoustics.py
+    deps:
+      - scripts/02_extract_acoustics.py
+      - features/manifest.csv
+    params:
+      - acoustics.max_formant_female
+      - acoustics.max_formant_male
+      - acoustics.n_formants
+      - acoustics.long_vowel_threshold_ms
+    outs:
+      - features/features_acoustic.csv
+      - features/missing_values_report.csv

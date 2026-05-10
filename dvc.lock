@@ -12,3 +12,29 @@ stages:
       hash: md5
       md5: 6fc09379bb187ce47db6b670e736a189
       size: 1287607
+  extract_acoustics:
+    cmd: python scripts/02_extract_acoustics.py
+    deps:
+    - path: features/manifest.csv
+      hash: md5
+      md5: 6fc09379bb187ce47db6b670e736a189
+      size: 1287607
+    - path: scripts/02_extract_acoustics.py
+      hash: md5
+      md5: b5c3e95c1f6e0624c87df2a8e034be64
+      size: 6743
+    params:
+      params.yaml:
+        acoustics.long_vowel_threshold_ms: 80
+        acoustics.max_formant_female: 5000
+        acoustics.max_formant_male: 4500
+        acoustics.n_formants: 5
+    outs:
+    - path: features/features_acoustic.csv
+      hash: md5
+      md5: 24391ff24753d17ea227dae98f82895b
+      size: 3582268
+    - path: features/missing_values_report.csv
+      hash: md5
+      md5: 378b678d8f2af078e09f7e9ef2cc2bb8
+      size: 14082

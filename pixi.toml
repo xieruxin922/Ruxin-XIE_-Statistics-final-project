@@ -25,6 +25,7 @@ matplotlib = "*"
 seaborn = "*"
 
 dvc = "*"
+pyyaml = ">=6.0.3,<7"
 
 [pypi-dependencies]
 praat-parselmouth = "*"

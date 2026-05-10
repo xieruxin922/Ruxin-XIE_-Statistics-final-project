@@ -1,0 +1,8 @@
+# params.yaml
+acoustics:
+  max_formant_female: 5000    
+  max_formant_male: 4500      
+  n_formants: 5               
+  long_vowel_threshold_ms: 80 
+  f0_time_step: 0.01          
+  scg_power: 2.0              
