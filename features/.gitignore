@@ -3,3 +3,6 @@
 /missing_values_report.csv
 /features_whisper.npz
 /features_xlsr.npz
+/features_acoustic_norm.csv
+/features_whisper_norm.npz
+/features_xlsr_norm.npz

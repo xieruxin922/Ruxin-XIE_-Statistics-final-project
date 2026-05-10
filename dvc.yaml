@@ -41,3 +41,18 @@ stages:
       - xlsr.target_layers
     outs:
       - features/features_xlsr.npz
+  
+  normalise:
+    cmd: python scripts/05_normalise.py
+    deps:
+      - scripts/05_normalise.py
+      - features/features_acoustic.csv
+      - features/features_whisper.npz
+      - features/features_xlsr.npz
+    params:
+      - normalisation.pca_dim_viz
+      - normalisation.pca_dim_cluster
+    outs:
+      - features/features_acoustic_norm.csv
+      - features/features_whisper_norm.npz
+      - features/features_xlsr_norm.npz

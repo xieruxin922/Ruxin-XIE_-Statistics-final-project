@@ -16,7 +16,7 @@ librosa = "*"
 # statistical analysis and machine learning
 pytorch = "*"
 transformers = "*"
-scikit-learn = "*"
+scikit-learn = ">=1.8.0,<2"
 statsmodels = "*"
 scipy = "*"
 
@@ -26,6 +26,7 @@ seaborn = "*"
 
 dvc = "*"
 pyyaml = ">=6.0.3,<7"
+umap-learn = ">=0.5.12,<0.6"
 
 [pypi-dependencies]
 praat-parselmouth = "*"

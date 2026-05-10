@@ -15,4 +15,8 @@ whisper:
 xlsr:
   model_id: "facebook/wav2vec2-large-xlsr-53"
   target_layers: [3, 9, 18]          
-  sampling_rate: 16000              
+  sampling_rate: 16000 
+
+normalisation:
+  pca_dim_viz: 2       # for visualization
+  pca_dim_cluster: 50  # for clustering             
