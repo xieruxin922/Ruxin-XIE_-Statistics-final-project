@@ -30,3 +30,14 @@ stages:
       - whisper.target_layers
     outs:
       - features/features_whisper.npz
+  
+  extract_neural_xlsr:
+    cmd: python scripts/04_extract_xlsr.py
+    deps:
+      - scripts/04_extract_xlsr.py
+      - features/manifest.csv
+    params:
+      - xlsr.model_id
+      - xlsr.target_layers
+    outs:
+      - features/features_xlsr.npz

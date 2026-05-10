@@ -10,4 +10,9 @@ acoustics:
 whisper:
   model_id: "openai/whisper-medium"  # 1024 demensions
   target_layers: [4, 20]             
-  sampling_rate: 16000  
+  sampling_rate: 16000 
+
+xlsr:
+  model_id: "facebook/wav2vec2-large-xlsr-53"
+  target_layers: [3, 9, 18]          
+  sampling_rate: 16000              

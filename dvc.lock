@@ -60,3 +60,26 @@ stages:
       hash: md5
       md5: 3c7a80c152721814e62267e321a7d3c0
       size: 187752964
+  extract_neural_xlsr:
+    cmd: python scripts/04_extract_xlsr.py
+    deps:
+    - path: features/manifest.csv
+      hash: md5
+      md5: 6fc09379bb187ce47db6b670e736a189
+      size: 1287607
+    - path: scripts/04_extract_xlsr.py
+      hash: md5
+      md5: 3491f1dd0032b45484c658e7a2d0445b
+      size: 3548
+    params:
+      params.yaml:
+        xlsr.model_id: facebook/wav2vec2-large-xlsr-53
+        xlsr.target_layers:
+        - 3
+        - 9
+        - 18
+    outs:
+    - path: features/features_xlsr.npz
+      hash: md5
+      md5: 56da7f55c3c885b13d072654d79ee9a8
+      size: 281629434
