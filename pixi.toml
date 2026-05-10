@@ -28,6 +28,7 @@ dvc = "*"
 
 [pypi-dependencies]
 praat-parselmouth = "*"
+tgt = ">=1.5, <2"
 
 [tasks]
 parse = "python scripts/parse_corpus.py"

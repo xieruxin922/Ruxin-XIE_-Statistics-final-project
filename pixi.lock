@@ -298,6 +298,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/win-64/zlib-ng-2.3.3-h0261ad2_1.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/zstd-1.5.7-h534d264_6.conda
       - pypi: https://files.pythonhosted.org/packages/38/d4/bbc8153bde9812b33714c210b41ddb50d5af56a6d155f23ee44a01724146/praat_parselmouth-0.4.7-cp314-cp314-win_amd64.whl
+      - pypi: https://files.pythonhosted.org/packages/e1/b2/98c733f6ef24e1f29b23f0f536e5e2fbcadc56493c9a36be7ff7a8181638/tgt-1.5-py3-none-any.whl
 packages:
 - conda: https://conda.anaconda.org/conda-forge/win-64/_openmp_mutex-4.5-20_gnu.conda
   build_number: 20
@@ -3934,6 +3935,10 @@ packages:
   purls: []
   size: 156910
   timestamp: 1777976465531
+- pypi: https://files.pythonhosted.org/packages/e1/b2/98c733f6ef24e1f29b23f0f536e5e2fbcadc56493c9a36be7ff7a8181638/tgt-1.5-py3-none-any.whl
+  name: tgt
+  version: '1.5'
+  sha256: df4566f0f9b1765691dcc984a78963496bca961a27ac7f10050be2db277df5e8
 - conda: https://conda.anaconda.org/conda-forge/noarch/threadpoolctl-3.6.0-pyhecae5ae_0.conda
   sha256: 6016672e0e72c4cf23c0cf7b1986283bd86a9c17e8d319212d78d8e9ae42fdfd
   md5: 9d64911b31d57ca443e9f1e36b04385f

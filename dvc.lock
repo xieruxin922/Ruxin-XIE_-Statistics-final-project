@@ -1,0 +1,14 @@
+schema: '2.0'
+stages:
+  parse_corpus:
+    cmd: python scripts/01_parse_corpus.py
+    deps:
+    - path: scripts/01_parse_corpus.py
+      hash: md5
+      md5: 2296dab5f85b2e471fa8b4736fe2cae1
+      size: 4567
+    outs:
+    - path: features/manifest.csv
+      hash: md5
+      md5: 6fc09379bb187ce47db6b670e736a189
+      size: 1287607

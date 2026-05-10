@@ -1,0 +1,7 @@
+stages:
+  parse_corpus:
+    cmd: python scripts/01_parse_corpus.py
+    deps:
+      - scripts/01_parse_corpus.py
+    outs:
+      - features/manifest.csv
