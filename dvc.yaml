@@ -19,3 +19,14 @@ stages:
     outs:
       - features/features_acoustic.csv
       - features/missing_values_report.csv
+  
+  extract_neural_whisper:
+    cmd: python scripts/03_extract_whisper.py
+    deps:
+      - scripts/03_extract_whisper.py
+      - features/manifest.csv
+    params:
+      - whisper.model_id
+      - whisper.target_layers
+    outs:
+      - features/features_whisper.npz

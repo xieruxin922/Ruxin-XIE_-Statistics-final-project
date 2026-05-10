@@ -30,12 +30,13 @@ pyyaml = ">=6.0.3,<7"
 [pypi-dependencies]
 praat-parselmouth = "*"
 tgt = ">=1.5, <2"
+soundfile = "*"
 
 [tasks]
-parse = "python scripts/parse_corpus.py"
-extract_acoustics = "python scripts/extract_acoustics.py"
-extract_whisper = "python scripts/extract_neural.py --model whisper"
-extract_xlsr = "python scripts/extract_neural.py --model xlsr"
+parse = "python scripts/01_parse_corpus.py"
+extract_acoustics = "python scripts/02_extract_acoustics.py"
+extract_whisper = "python scripts/03_extract_neural.py --model whisper"
+extract_xlsr = "python scripts/03_extract_neural.py --model xlsr"
 analyze = "python scripts/analyze.py"
 
 pipeline = "dvc repro"

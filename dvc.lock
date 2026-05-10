@@ -38,3 +38,25 @@ stages:
       hash: md5
       md5: 378b678d8f2af078e09f7e9ef2cc2bb8
       size: 14082
+  extract_neural_whisper:
+    cmd: python scripts/03_extract_whisper.py
+    deps:
+    - path: features/manifest.csv
+      hash: md5
+      md5: 6fc09379bb187ce47db6b670e736a189
+      size: 1287607
+    - path: scripts/03_extract_whisper.py
+      hash: md5
+      md5: c48e3ea9b07fedc822c1c2e6aae1fba4
+      size: 4633
+    params:
+      params.yaml:
+        whisper.model_id: openai/whisper-medium
+        whisper.target_layers:
+        - 4
+        - 20
+    outs:
+    - path: features/features_whisper.npz
+      hash: md5
+      md5: 3c7a80c152721814e62267e321a7d3c0
+      size: 187752964
