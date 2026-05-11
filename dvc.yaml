@@ -88,3 +88,15 @@ stages:
       - features/features_xlsr_norm.npz
     outs:
       - results/5/rsa_mantel_results.csv
+  
+  statistical_tests:
+    cmd: python scripts/09_group_comparisons.py
+    deps:
+      - scripts/09_group_comparisons.py
+      - features/features_acoustic_norm.csv
+      - features/features_whisper_norm.npz
+    outs:
+      - results/6/stat_acoustic_l1_l2.csv
+      - results/6/stat_gender_residual.csv
+      - results/6/stat_neural_l1_l2.csv
+      - results/6/fig_qq_plots.png

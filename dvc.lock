@@ -231,3 +231,35 @@ stages:
       hash: md5
       md5: 691e1f2df29f081739cddd6f14b962c9
       size: 169
+  statistical_tests:
+    cmd: python scripts/09_group_comparisons.py
+    deps:
+    - path: features/features_acoustic_norm.csv
+      hash: md5
+      md5: 9effc5f37e7d9c6da6c67189a7ce2ac1
+      size: 5380073
+    - path: features/features_whisper_norm.npz
+      hash: md5
+      md5: 18f85a2af6f49b1fde97499ab39c087c
+      size: 9902580
+    - path: scripts/09_group_comparisons.py
+      hash: md5
+      md5: c62076c9b3756862820b13b417de23ca
+      size: 7490
+    outs:
+    - path: results/6/fig_qq_plots.png
+      hash: md5
+      md5: e6d191f30150b97bf830a5ba1e1ef5cf
+      size: 249734
+    - path: results/6/stat_acoustic_l1_l2.csv
+      hash: md5
+      md5: fd5250ba27f3217f5717bdd253aa4d63
+      size: 1227
+    - path: results/6/stat_gender_residual.csv
+      hash: md5
+      md5: bb0442f6b357f8a43db93e5f47fb83d5
+      size: 142
+    - path: results/6/stat_neural_l1_l2.csv
+      hash: md5
+      md5: c24f9c5a50991368a3c2ddec7588f6ee
+      size: 628
