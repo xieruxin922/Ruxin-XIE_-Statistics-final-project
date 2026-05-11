@@ -78,3 +78,13 @@ stages:
       - features/features_xlsr_norm.npz
     outs:
       - results/5/neural_metrics_comparison.csv
+  
+  rsa_mantel:
+    cmd: python scripts/08_rsa_mantel.py
+    deps:
+      - scripts/08_rsa_mantel.py
+      - features/features_acoustic_norm.csv
+      - features/features_whisper_norm.npz
+      - features/features_xlsr_norm.npz
+    outs:
+      - results/5/rsa_mantel_results.csv

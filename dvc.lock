@@ -207,3 +207,27 @@ stages:
       hash: md5
       md5: c663fa3880926ee8bc2abe3e343692e9
       size: 527
+  rsa_mantel:
+    cmd: python scripts/08_rsa_mantel.py
+    deps:
+    - path: features/features_acoustic_norm.csv
+      hash: md5
+      md5: 9effc5f37e7d9c6da6c67189a7ce2ac1
+      size: 5380073
+    - path: features/features_whisper_norm.npz
+      hash: md5
+      md5: 18f85a2af6f49b1fde97499ab39c087c
+      size: 9902580
+    - path: features/features_xlsr_norm.npz
+      hash: md5
+      md5: 46b92f218a393ba2a829b849aeb41af7
+      size: 14853856
+    - path: scripts/08_rsa_mantel.py
+      hash: md5
+      md5: 119a9e227e110f21b0d9328ec63f79b1
+      size: 4886
+    outs:
+    - path: results/5/rsa_mantel_results.csv
+      hash: md5
+      md5: 691e1f2df29f081739cddd6f14b962c9
+      size: 169
