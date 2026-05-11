@@ -119,3 +119,35 @@ stages:
       hash: md5
       md5: 46b92f218a393ba2a829b849aeb41af7
       size: 14853856
+  analyse:
+    cmd: python scripts/06_acoustic_features_analysis.py
+    deps:
+    - path: features/features_acoustic_norm.csv
+      hash: md5
+      md5: 9effc5f37e7d9c6da6c67189a7ce2ac1
+      size: 5380073
+    - path: scripts/06_acoustic_features_analysis.py
+      hash: md5
+      md5: e08a5306381e3b1698e6510d0407f2c2
+      size: 5781
+    outs:
+    - path: results/5/fig_boxplots.png
+      hash: md5
+      md5: 9547fb0738f935be047030ad45d2e24b
+      size: 322767
+    - path: results/5/fig_intra_speaker.png
+      hash: md5
+      md5: 61a788f0487b36ec2ce4067592733bf8
+      size: 283586
+    - path: results/5/fig_vowel_space.png
+      hash: md5
+      md5: 840606f33318b9d5c0d2de8f2d5e1de6
+      size: 468215
+    - path: results/5/summary_statistics.csv
+      hash: md5
+      md5: 2f654fa732075b831d655ee86929019e
+      size: 8752
+    - path: results/5/variance_decomposition.csv
+      hash: md5
+      md5: 15e93d76db5d47896b4a7c21e1f01783
+      size: 508

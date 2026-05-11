@@ -56,3 +56,15 @@ stages:
       - features/features_acoustic_norm.csv
       - features/features_whisper_norm.npz
       - features/features_xlsr_norm.npz
+
+  analyse:
+    cmd: python scripts/06_acoustic_features_analysis.py
+    deps:
+      - scripts/06_acoustic_features_analysis.py
+      - features/features_acoustic_norm.csv
+    outs:
+      - results/5/summary_statistics.csv
+      - results/5/variance_decomposition.csv
+      - results/5/fig_vowel_space.png
+      - results/5/fig_boxplots.png
+      - results/5/fig_intra_speaker.png

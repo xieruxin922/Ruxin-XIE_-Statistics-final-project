@@ -36,8 +36,8 @@ soundfile = "*"
 [tasks]
 parse = "python scripts/01_parse_corpus.py"
 extract_acoustics = "python scripts/02_extract_acoustics.py"
-extract_whisper = "python scripts/03_extract_neural.py --model whisper"
-extract_xlsr = "python scripts/03_extract_neural.py --model xlsr"
-analyze = "python scripts/analyze.py"
+extract_whisper = "python scripts/03_extract_whisper.py"
+extract_xlsr = "python scripts/04_extract_xlsr.py"
+normalize = "python scripts/05_normalise.py"
 
 pipeline = "dvc repro"
