@@ -2,3 +2,8 @@
 /stat_gender_residual.csv
 /stat_neural_l1_l2.csv
 /fig_qq_plots.png
+/dist_mantel_results.csv
+/dist_bootstrap_ci.csv
+/clf_performance.csv
+/clf_statistical_tests.csv
+/fig_confusion_matrix_whisper.png

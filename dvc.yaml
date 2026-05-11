@@ -89,7 +89,7 @@ stages:
     outs:
       - results/5/rsa_mantel_results.csv
   
-  statistical_tests:
+  group comparisons:
     cmd: python scripts/09_group_comparisons.py
     deps:
       - scripts/09_group_comparisons.py
@@ -100,3 +100,17 @@ stages:
       - results/6/stat_gender_residual.csv
       - results/6/stat_neural_l1_l2.csv
       - results/6/fig_qq_plots.png
+  
+  inter_phoneme_distances:
+    cmd: python scripts/10_inter_phoneme_dist.py
+    deps:
+      - scripts/10_inter_phoneme_dist.py
+      - features/features_acoustic_norm.csv
+      - features/features_whisper_norm.npz
+      - features/features_xlsr_norm.npz
+    outs:
+      - results/6/dist_mantel_results.csv
+      - results/6/dist_bootstrap_ci.csv
+      - results/6/clf_performance.csv
+      - results/6/clf_statistical_tests.csv
+      - results/6/fig_confusion_matrix_whisper.png
