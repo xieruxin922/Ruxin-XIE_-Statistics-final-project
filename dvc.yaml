@@ -57,7 +57,7 @@ stages:
       - features/features_whisper_norm.npz
       - features/features_xlsr_norm.npz
 
-  analyse:
+  acoustic_analyse:
     cmd: python scripts/06_acoustic_features_analysis.py
     deps:
       - scripts/06_acoustic_features_analysis.py
@@ -68,3 +68,13 @@ stages:
       - results/5/fig_vowel_space.png
       - results/5/fig_boxplots.png
       - results/5/fig_intra_speaker.png
+  
+  analyse_neural:
+    cmd: python scripts/07_neural_analysis.py
+    deps:
+      - scripts/07_neural_analysis.py
+      - features/features_acoustic_norm.csv
+      - features/features_whisper_norm.npz
+      - features/features_xlsr_norm.npz
+    outs:
+      - results/5/neural_metrics_comparison.csv
