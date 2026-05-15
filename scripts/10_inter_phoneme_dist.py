@@ -9,7 +9,7 @@ from sklearn.neighbors import NearestCentroid
 from sklearn.metrics import accuracy_score, f1_score, confusion_matrix
 from statsmodels.stats.contingency_tables import mcnemar
 import warnings
-from sklearn.preprocessing import normalize
+from sklearn.metrics.pairwise import cosine_similarity
 
 # 忽略因为个别 speaker 缺少某个音素导致的空切片警告
 warnings.filterwarnings("ignore", category=RuntimeWarning)
@@ -68,15 +68,6 @@ def loso_cross_validation(features, labels, speaker_ids, metric='euclidean'):
     y_true_all = []
     y_pred_all = []
     
-    # 🚀 核心修复：如果是 cosine，先把特征做 L2 标准化，然后用 euclidean 偷梁换柱！
-    if metric == 'cosine':
-        features = normalize(features, norm='l2')
-        actual_metric = 'euclidean'
-    else:
-        actual_metric = metric
-        
-    clf = NearestCentroid(metric=actual_metric)
-    
     for test_spk in speakers:
         train_mask = speaker_ids != test_spk
         test_mask = speaker_ids == test_spk
@@ -87,9 +78,33 @@ def loso_cross_validation(features, labels, speaker_ids, metric='euclidean'):
         if len(X_train) == 0 or len(X_test) == 0:
             continue
             
-        clf.fit(X_train, y_train)
-        y_pred = clf.predict(X_test)
-        
+        if metric == 'euclidean':
+            # 声学特征用官方的库完全没问题，因为它是算物理直线距离
+            clf = NearestCentroid(metric='euclidean')
+            clf.fit(X_train, y_train)
+            y_pred = clf.predict(X_test)
+            
+        elif metric == 'cosine':
+            # 🚀 神经网络特征：纯手工精准实现 Cosine Nearest Centroid
+            classes = np.unique(y_train)
+            centroids = []
+            
+            # 第一步：计算每个音素的平均向量作为质心
+            for c in classes:
+                c_mean = np.mean(X_train[y_train == c], axis=0)
+                centroids.append(c_mean)
+            centroids = np.array(centroids)
+            
+            # 第二步：计算测试集所有样本到各个质心的余弦相似度矩阵
+            # 结果是一个矩阵，比如 50个测试样本 x 11个音素质心
+            sims = cosine_similarity(X_test, centroids)
+            
+            # 第三步：找出每个测试样本相似度最高（得分最大）的那个质心的索引
+            best_class_indices = np.argmax(sims, axis=1)
+            
+            # 第四步：将索引转换回具体的音素标签 (比如 'a', 'i')
+            y_pred = classes[best_class_indices]
+            
         y_true_all.extend(y_test)
         y_pred_all.extend(y_pred)
         
@@ -165,7 +180,7 @@ def main():
     # 2. Bootstrap CI for Selected Pairs
     # ==========================================
     print("Running Speaker-level Bootstrap CI (B=1000)...")
-    pairs_to_test = [('e', 'ɛ'), ('y', 'u')]
+    pairs_to_test = [('e', 'ɛ'), ('y', 'u'), ('i', 'a'), ('i', 'y'), ('ə', 'o')]
     B = 1000
     boot_results = []
     
