@@ -125,3 +125,15 @@ stages:
     outs:
       - results/7/lme_hierarchy_results.csv
       - results/7/lme_representation_comparison.csv
+
+  8_ci_and_rope:
+    cmd: python scripts/12_ci_rope.py
+    deps:
+      - scripts/12_ci_rope.py
+      - features/features_acoustic_norm.csv
+      - features/features_whisper_norm.npz
+      - features/features_xlsr_norm.npz
+    outs:
+      - results/8/rope_classifications.csv
+      - results/8/fig_forest_acoustic_F1.png
+      - results/8/fig_forest_whisper.png

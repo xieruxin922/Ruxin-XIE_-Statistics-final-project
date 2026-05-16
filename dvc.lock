@@ -435,3 +435,35 @@ stages:
       hash: md5
       md5: 8fa0ed3d74297743cb8b8586a4ef0a07
       size: 137
+  8_ci_and_rope:
+    cmd: python scripts/12_ci_rope.py
+    deps:
+    - path: features/features_acoustic_norm.csv
+      hash: md5
+      md5: 9effc5f37e7d9c6da6c67189a7ce2ac1
+      size: 5380073
+    - path: features/features_whisper_norm.npz
+      hash: md5
+      md5: 18f85a2af6f49b1fde97499ab39c087c
+      size: 9902580
+    - path: features/features_xlsr_norm.npz
+      hash: md5
+      md5: 46b92f218a393ba2a829b849aeb41af7
+      size: 14853856
+    - path: scripts/12_ci_rope.py
+      hash: md5
+      md5: a2790b18896ac8c5a35ee6b9c0546b0b
+      size: 9818
+    outs:
+    - path: results/8/fig_forest_acoustic_F1.png
+      hash: md5
+      md5: 40d44075cab34ffcedbdfb73d41e0ddd
+      size: 93805
+    - path: results/8/fig_forest_whisper.png
+      hash: md5
+      md5: 25566311ab0bcdda26aff2ce572a850b
+      size: 102111
+    - path: results/8/rope_classifications.csv
+      hash: md5
+      md5: d95da2a43070c6e0f002fe0dd5468f3f
+      size: 3865
