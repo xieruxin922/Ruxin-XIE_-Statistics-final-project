@@ -137,3 +137,25 @@ stages:
       - results/8/rope_classifications.csv
       - results/8/fig_forest_acoustic_F1.png
       - results/8/fig_forest_whisper.png
+  
+  9_hierarchical_clustering:
+    cmd: python scripts/13_hierarchical_clustering.py
+    deps:
+      - scripts/13_hierarchical_clustering.py
+      - features/features_acoustic_norm.csv
+      - features/features_whisper_norm.npz
+      - features/features_xlsr_norm.npz
+    outs:
+      - results/9/cluster_9_1_vowels.csv
+      - results/9/cluster_9_2_cv_boundary.csv
+      - results/9/cluster_9_3_speakers.csv
+      - results/9/fig_dendro_all_phonemes_Acoustic.png
+      - results/9/fig_dendro_all_phonemes_Whisper.png
+      - results/9/fig_dendro_all_phonemes_XLS-R.png
+      - results/9/fig_dendro_vowel_Acoustic.png
+      - results/9/fig_dendro_vowel_Whisper.png
+      - results/9/fig_dendro_vowel_XLS-R.png
+      - results/9/fig_dendro_spk_Acoustic.png
+      - results/9/fig_dendro_spk_Whisper.png
+      - results/9/fig_dendro_spk_XLS-R.png
+      

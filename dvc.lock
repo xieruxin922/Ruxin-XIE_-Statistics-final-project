@@ -467,3 +467,71 @@ stages:
       hash: md5
       md5: d95da2a43070c6e0f002fe0dd5468f3f
       size: 3865
+  9_hierarchical_clustering:
+    cmd: python scripts/13_hierarchical_clustering.py
+    deps:
+    - path: features/features_acoustic_norm.csv
+      hash: md5
+      md5: 9effc5f37e7d9c6da6c67189a7ce2ac1
+      size: 5380073
+    - path: features/features_whisper_norm.npz
+      hash: md5
+      md5: 18f85a2af6f49b1fde97499ab39c087c
+      size: 9902580
+    - path: features/features_xlsr_norm.npz
+      hash: md5
+      md5: 46b92f218a393ba2a829b849aeb41af7
+      size: 14853856
+    - path: scripts/13_hierarchical_clustering.py
+      hash: md5
+      md5: 8e3ecc6a7c6eec94ffbc23f60396a253
+      size: 10877
+    outs:
+    - path: results/9/cluster_9_1_vowels.csv
+      hash: md5
+      md5: 7c67acaf22691a0a9aeeb808325a3f4a
+      size: 1032
+    - path: results/9/cluster_9_2_cv_boundary.csv
+      hash: md5
+      md5: eed67cf80dee12a365df54c748330734
+      size: 270
+    - path: results/9/cluster_9_3_speakers.csv
+      hash: md5
+      md5: 159207b4307a98811016efbbe1e783ed
+      size: 204
+    - path: results/9/fig_dendro_all_phonemes_Acoustic.png
+      hash: md5
+      md5: f437f80cfbf1d17ebdb92dea2403314e
+      size: 79348
+    - path: results/9/fig_dendro_all_phonemes_Whisper.png
+      hash: md5
+      md5: f68a83cbd044910206590ce6ca351207
+      size: 77278
+    - path: results/9/fig_dendro_all_phonemes_XLS-R.png
+      hash: md5
+      md5: 8d5b55d25cf31d1c2fd772028a0c6079
+      size: 76629
+    - path: results/9/fig_dendro_spk_Acoustic.png
+      hash: md5
+      md5: a43e1c7e173328b19421bdca3889a6e8
+      size: 78532
+    - path: results/9/fig_dendro_spk_Whisper.png
+      hash: md5
+      md5: 18aa80c49d6441b895eca46146a8d3c1
+      size: 71974
+    - path: results/9/fig_dendro_spk_XLS-R.png
+      hash: md5
+      md5: 0505ec98cedb62f749321a6dc6481050
+      size: 71409
+    - path: results/9/fig_dendro_vowel_Acoustic.png
+      hash: md5
+      md5: c2427d8a6ed70307206ee837f25c2270
+      size: 72269
+    - path: results/9/fig_dendro_vowel_Whisper.png
+      hash: md5
+      md5: d8bbc820c3dfbe84b5579b96f542dd57
+      size: 80292
+    - path: results/9/fig_dendro_vowel_XLS-R.png
+      hash: md5
+      md5: 5ba35a98d13275cbf1b9297d52c30cd8
+      size: 68732
