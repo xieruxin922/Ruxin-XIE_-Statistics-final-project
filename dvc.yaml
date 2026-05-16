@@ -89,7 +89,7 @@ stages:
     outs:
       - results/5/rsa_mantel_results.csv
   
-  group comparisons:
+  6.1_group comparisons:
     cmd: python scripts/09_group_comparisons.py
     deps:
       - scripts/09_group_comparisons.py
@@ -101,7 +101,7 @@ stages:
       - results/6/stat_neural_l1_l2.csv
       - results/6/fig_qq_plots.png
   
-  inter_phoneme_distances:
+  6.2_inter_phoneme_distances:
     cmd: python scripts/10_inter_phoneme_dist.py
     deps:
       - scripts/10_inter_phoneme_dist.py
@@ -114,3 +114,14 @@ stages:
       - results/6/clf_performance.csv
       - results/6/clf_statistical_tests.csv
       - results/6/fig_confusion_matrix_whisper.png
+
+  7_lme_models:
+    cmd: python scripts/11_linear_mixed-effects_models.py
+    deps:
+      - scripts/11_linear_mixed-effects_models.py
+      - features/features_acoustic_norm.csv
+      - features/features_whisper_norm.npz
+      - features/features_xlsr_norm.npz
+    outs:
+      - results/7/lme_hierarchy_results.csv
+      - results/7/lme_representation_comparison.csv

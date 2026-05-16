@@ -335,3 +335,103 @@ stages:
       hash: md5
       md5: 2592786582f1527f26f029afe4128d95
       size: 217166
+  6.1_group comparisons:
+    cmd: python scripts/09_group_comparisons.py
+    deps:
+    - path: features/features_acoustic_norm.csv
+      hash: md5
+      md5: 9effc5f37e7d9c6da6c67189a7ce2ac1
+      size: 5380073
+    - path: features/features_whisper_norm.npz
+      hash: md5
+      md5: 18f85a2af6f49b1fde97499ab39c087c
+      size: 9902580
+    - path: scripts/09_group_comparisons.py
+      hash: md5
+      md5: c62076c9b3756862820b13b417de23ca
+      size: 7490
+    outs:
+    - path: results/6/fig_qq_plots.png
+      hash: md5
+      md5: e6d191f30150b97bf830a5ba1e1ef5cf
+      size: 249734
+    - path: results/6/stat_acoustic_l1_l2.csv
+      hash: md5
+      md5: fd5250ba27f3217f5717bdd253aa4d63
+      size: 1227
+    - path: results/6/stat_gender_residual.csv
+      hash: md5
+      md5: bb0442f6b357f8a43db93e5f47fb83d5
+      size: 142
+    - path: results/6/stat_neural_l1_l2.csv
+      hash: md5
+      md5: c24f9c5a50991368a3c2ddec7588f6ee
+      size: 628
+  6.2_inter_phoneme_distances:
+    cmd: python scripts/10_inter_phoneme_dist.py
+    deps:
+    - path: features/features_acoustic_norm.csv
+      hash: md5
+      md5: 9effc5f37e7d9c6da6c67189a7ce2ac1
+      size: 5380073
+    - path: features/features_whisper_norm.npz
+      hash: md5
+      md5: 18f85a2af6f49b1fde97499ab39c087c
+      size: 9902580
+    - path: features/features_xlsr_norm.npz
+      hash: md5
+      md5: 46b92f218a393ba2a829b849aeb41af7
+      size: 14853856
+    - path: scripts/10_inter_phoneme_dist.py
+      hash: md5
+      md5: 24b423b78e418a5dddc1c440e22b5c52
+      size: 12109
+    outs:
+    - path: results/6/clf_performance.csv
+      hash: md5
+      md5: 2015e86b3394e496d4c8340215b47135
+      size: 169
+    - path: results/6/clf_statistical_tests.csv
+      hash: md5
+      md5: 6a0ecb21fc76da2ece50490ab7cdc93e
+      size: 184
+    - path: results/6/dist_bootstrap_ci.csv
+      hash: md5
+      md5: 9fb9c9db555ac55c810e2a3faa385481
+      size: 374
+    - path: results/6/dist_mantel_results.csv
+      hash: md5
+      md5: 2e26538b9383aaba0c82e33f1b08e5e6
+      size: 240
+    - path: results/6/fig_confusion_matrix_whisper.png
+      hash: md5
+      md5: 2592786582f1527f26f029afe4128d95
+      size: 217166
+  7_lme_models:
+    cmd: python scripts/11_linear_mixed-effects_models.py
+    deps:
+    - path: features/features_acoustic_norm.csv
+      hash: md5
+      md5: 9effc5f37e7d9c6da6c67189a7ce2ac1
+      size: 5380073
+    - path: features/features_whisper_norm.npz
+      hash: md5
+      md5: 18f85a2af6f49b1fde97499ab39c087c
+      size: 9902580
+    - path: features/features_xlsr_norm.npz
+      hash: md5
+      md5: 46b92f218a393ba2a829b849aeb41af7
+      size: 14853856
+    - path: scripts/11_linear_mixed-effects_models.py
+      hash: md5
+      md5: e93d2614c9a0442a834f6d4a9958af46
+      size: 7391
+    outs:
+    - path: results/7/lme_hierarchy_results.csv
+      hash: md5
+      md5: 6247c4d3bd1863794b8acc13299cc5a0
+      size: 5685
+    - path: results/7/lme_representation_comparison.csv
+      hash: md5
+      md5: 8fa0ed3d74297743cb8b8586a4ef0a07
+      size: 137
